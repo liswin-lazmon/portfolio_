@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Liswin Lazmon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { background: "#0a0a0a", panel: "#161616", cyanGlow: "#0147ad", magentaGlow: "#5a9fd4" }, fontFamily: { display: ["Space Grotesk"], body: ["Plus Jakarta Sans"] } } } };
+  </script>
+  <style>
+    .aurora-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(1, 71, 173, 0.24), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(90, 159, 212, 0.16), transparent 30%),
+        #0a0a0a;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .fx-card { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+    .fx-card:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(1, 71, 173, 0.3); border-color: rgba(1, 71, 173, 0.62); }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-16px); } }
+  </style>
+</head>
+<body class="bg-background text-zinc-100 font-body">
+  <div class="aurora-bg"></div>
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur border-b border-cyanGlow/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <a href="index.html" class="font-display text-cyanGlow font-bold tracking-wide text-center sm:text-left">LISWIN</a>
+      <nav class="flex flex-wrap justify-center sm:justify-end gap-2 text-xs sm:text-sm">
+        <a href="index.html" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">Home</a>
+        <a href="about.html" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">About</a>
+        <a href="services.html" class="px-2 sm:px-3 py-2 bg-cyanGlow text-white font-semibold">Services</a>
+        <a href="index.html#contact" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+    <section class="bg-panel border border-cyanGlow/25 p-8 fx-card reveal">
+      <p class="text-xs tracking-[0.2em] text-cyanGlow mb-3">SERVICES / ACTIVE</p>
+      <h1 class="font-display text-4xl md:text-5xl mb-5">Services</h1>
+      <p class="text-zinc-300 leading-relaxed">
+        Services aligned with my current stack as an entry-level Full Stack Developer.
+        I deliver complete web solutions using Python, Django, REST APIs, MySql/SQLite, and responsive frontend technologies.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 reveal">
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-cyanGlow mb-4">Backend Development</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Python + Django application development</li>
+          <li>REST API implementation (Django Rest Framework)</li>
+          <li>Authentication and session workflows</li>
+          <li>Database integration with MySql and SQLite</li>
+        </ul>
+      </article>
+
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-magentaGlow mb-4">Frontend Development</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Responsive UI using HTML, CSS, JavaScript, Bootstrap</li>
+          <li>Frontend integration with backend APIs</li>
+          <li>Reusable components and clean layouts</li>
+          <li>User-friendly page structures</li>
+        </ul>
+      </article>
+
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-cyanGlow mb-4">Development Tools</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Git-based version control workflows</li>
+          <li>GitHub repository collaboration</li>
+          <li>VS Code based development setup</li>
+          <li>End-to-end application workflow support</li>
+        </ul>
+      </article>
+
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-magentaGlow mb-4">Project Types</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Turf booking and reservation platforms</li>
+          <li>CRUD web applications</li>
+          <li>Authentication-based dashboard systems</li>
+          <li>Portfolio and business websites</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <script>
+    (function initReveal() {
+      const elements = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.12 });
+      elements.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>

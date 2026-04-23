@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Liswin Lazmon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { background: "#0a0a0a", panel: "#161616", cyanGlow: "#0147ad", magentaGlow: "#5a9fd4" }, fontFamily: { display: ["Space Grotesk"], body: ["Plus Jakarta Sans"] } } } };
+  </script>
+  <style>
+    .aurora-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(1, 71, 173, 0.24), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(90, 159, 212, 0.15), transparent 30%),
+        #0a0a0a;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .fx-card { transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; }
+    .fx-card:hover { transform: translateY(-5px); box-shadow: 0 14px 32px rgba(1, 71, 173, 0.26); border-color: rgba(1, 71, 173, 0.6); }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-16px); } }
+  </style>
+</head>
+<body class="bg-background text-zinc-100 font-body">
+  <div class="aurora-bg"></div>
+  <header class="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur border-b border-cyanGlow/20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <a href="index.html" class="font-display text-cyanGlow font-bold tracking-wide text-center sm:text-left">LISWIN</a>
+      <nav class="flex flex-wrap justify-center sm:justify-end gap-2 text-xs sm:text-sm">
+        <a href="index.html" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">Home</a>
+        <a href="about.html" class="px-2 sm:px-3 py-2 bg-cyanGlow text-white font-semibold">About</a>
+        <a href="services.html" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">Services</a>
+        <a href="index.html#contact" class="px-2 sm:px-3 py-2 border border-cyanGlow/40 hover:bg-cyanGlow/10">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14 space-y-8">
+    <section class="bg-panel border border-cyanGlow/25 p-8 fx-card reveal">
+      <p class="text-xs tracking-[0.2em] text-cyanGlow mb-3">PROFILE / ABOUT_PAGE</p>
+      <h1 class="font-display text-4xl md:text-5xl mb-5">About Me</h1>
+      <p class="text-zinc-300 leading-relaxed">
+        Entry-level Full Stack Developer with hands-on experience in building web applications using Python and Django.
+        Strong foundation in backend development, REST API implementation, database integration with MySql, and responsive frontend development using HTML, CSS, JavaScript, and Bootstrap.
+        Familiar with Git-based version control and end-to-end application workflows.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-6 reveal">
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-cyanGlow mb-4">My Works</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Turf Booking Platform - Django based booking and reservation system</li>
+          <li>Razorpay integration for secure online transactions and confirmations</li>
+          <li>Automated slot allocation with conflict and double-booking prevention</li>
+          <li>Responsive web interfaces with HTML, CSS, JavaScript, and Bootstrap</li>
+          <li>CRUD dashboards with session handling, image uploads, and PDF invoices</li>
+        </ul>
+      </article>
+      <article class="border border-zinc-800 bg-zinc-900/60 p-6 fx-card">
+        <h2 class="font-display text-2xl text-magentaGlow mb-4">Education</h2>
+        <ul class="space-y-2 text-zinc-300">
+          <li>Diploma in Python Full Stack Development</li>
+          <li>Excellence College, Thrissur, Kerala, India</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="border border-cyanGlow/20 p-6 bg-zinc-950/60 fx-card reveal">
+      <h3 class="font-display text-xl mb-3">More Work Highlights</h3>
+      <ul class="space-y-2 text-zinc-300">
+        <li>Built a full-stack Turf Booking Management System using Django with user authentication, turf listings, and real-time reservations.</li>
+        <li>Integrated Razorpay payment gateway for secure online transactions, automated invoice generation, and booking confirmations.</li>
+        <li>Designed Sqlite database schemas for turfs, pricing, time slots, amenities, and bookings with validation and conflict prevention.</li>
+        <li>Implemented automated slot allocation with availability checks, buffer time handling, and double booking prevention logic.</li>
+        <li>Developed responsive UI using HTML/CSS with CRUD operations, session management, image uploads, and PDF invoice generation.</li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    (function initReveal() {
+      const elements = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.12 });
+      elements.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
